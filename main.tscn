@@ -1,10 +1,251 @@
-[gd_scene format=3 uid="uid://c43uecprb0ch1"]
+[gd_scene load_steps=8 format=3 uid="uid://c43uecprb0ch1"]
+
+[ext_resource type="Texture2D" uid="uid://bpdmermn4jtvu" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_07.png" id="1_7mycd"]
+[ext_resource type="Texture2D" uid="uid://b0tlm1i16xed0" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_04.png" id="2_272bh"]
+[ext_resource type="Texture2D" uid="uid://dft0vwlrwv644" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_03.png" id="3_5vw27"]
+[ext_resource type="Texture2D" uid="uid://dyogigmbovnjj" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_05.png" id="4_kek77"]
+[ext_resource type="Texture2D" uid="uid://ddovb2kgq4i0j" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_11.png" id="5_4c57u"]
+[ext_resource type="Texture2D" uid="uid://bnahi7s2pxov" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Environment/scifiEnvironment_16.png" id="6_efxa6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dg77c"]
+font_size = 120
+outline_size = 40
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D"]
 
 [node name="GameObjects" type="Node2D" parent="."]
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Backgrounds" type="Node2D" parent="UI"]
+position = Vector2(0, -1)
+
+[node name="ColorRect" type="ColorRect" parent="UI/Backgrounds"]
+offset_right = 1152.0
+offset_bottom = 33.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="UI/Backgrounds"]
+offset_left = 2.0
+offset_top = 500.0
+offset_right = 1154.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 1)
+
+[node name="ResourceText" type="Node2D" parent="UI"]
+
+[node name="LabelWood" type="Label" parent="UI/ResourceText"]
+offset_left = 20.0
+offset_top = 1.0
+offset_right = 122.0
+offset_bottom = 31.0
+text = "Wood: 0"
+vertical_alignment = 1
+
+[node name="LabelFood" type="Label" parent="UI/ResourceText"]
+offset_left = 141.0
+offset_top = 2.0
+offset_right = 265.0
+offset_bottom = 32.0
+text = "Food: 0"
+vertical_alignment = 1
+
+[node name="LabelGold" type="Label" parent="UI/ResourceText"]
+offset_left = 257.0
+offset_top = 1.0
+offset_right = 381.0
+offset_bottom = 31.0
+text = "Gold: 0"
+vertical_alignment = 1
+
+[node name="LabelPopulation" type="Label" parent="UI/ResourceText"]
+offset_left = 367.0
+offset_right = 491.0
+offset_bottom = 34.0
+text = "Population: 0/0"
+vertical_alignment = 1
+
+[node name="MiniMap" type="Node2D" parent="UI"]
+
+[node name="OuterBox" type="Node2D" parent="UI/MiniMap"]
+position = Vector2(953, 526)
+
+[node name="ColorRect" type="ColorRect" parent="UI/MiniMap/OuterBox"]
+offset_top = -11.0
+offset_right = 118.0
+
+[node name="ColorRect4" type="ColorRect" parent="UI/MiniMap/OuterBox"]
+offset_top = 96.0
+offset_right = 118.0
+offset_bottom = 107.0
+
+[node name="ColorRect2" type="ColorRect" parent="UI/MiniMap/OuterBox"]
+offset_left = 11.0
+offset_top = -11.0
+offset_right = 129.0
+rotation = 1.5708
+
+[node name="ColorRect3" type="ColorRect" parent="UI/MiniMap/OuterBox"]
+offset_left = 118.0
+offset_top = -11.0
+offset_right = 236.0
+rotation = 1.5708
+
+[node name="Screen" type="Node2D" parent="UI/MiniMap"]
+position = Vector2(997, 566)
+
+[node name="ColorRect" type="ColorRect" parent="UI/MiniMap/Screen"]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 16.0
+
+[node name="WorkerBuildOptions" type="Node2D" parent="UI"]
+visible = false
+
+[node name="TC" type="Node2D" parent="UI/WorkerBuildOptions"]
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/WorkerBuildOptions/TC"]
+position = Vector2(30, 530)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_7mycd")
+
+[node name="ButtonBuildTC" type="Button" parent="UI/WorkerBuildOptions/TC/Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.392157)
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="House" type="Node2D" parent="UI/WorkerBuildOptions"]
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/WorkerBuildOptions/House"]
+position = Vector2(110, 530)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_272bh")
+
+[node name="ButtonBBuildHouse" type="Button" parent="UI/WorkerBuildOptions/House/Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.392157)
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="Barracks" type="Node2D" parent="UI/WorkerBuildOptions"]
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/WorkerBuildOptions/Barracks"]
+position = Vector2(150, 530)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_5vw27")
+
+[node name="ButtonBBuildBarracks" type="Button" parent="UI/WorkerBuildOptions/Barracks/Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.392157)
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="Range" type="Node2D" parent="UI/WorkerBuildOptions"]
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/WorkerBuildOptions/Range"]
+position = Vector2(190, 530)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_kek77")
+
+[node name="ButtonBBuildRange" type="Button" parent="UI/WorkerBuildOptions/Range/Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.392157)
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="Tower" type="Node2D" parent="UI/WorkerBuildOptions"]
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/WorkerBuildOptions/Tower"]
+position = Vector2(230, 530)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_4c57u")
+
+[node name="ButtonBBuildTower" type="Button" parent="UI/WorkerBuildOptions/Tower/Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.392157)
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="Farm" type="Node2D" parent="UI/WorkerBuildOptions"]
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/WorkerBuildOptions/Farm"]
+position = Vector2(70, 530)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_efxa6")
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/WorkerBuildOptions/Farm/Sprite2D"]
+position = Vector2(18, -18)
+texture = ExtResource("6_efxa6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="UI/WorkerBuildOptions/Farm/Sprite2D"]
+position = Vector2(-16, -18)
+texture = ExtResource("6_efxa6")
+
+[node name="Sprite2D3" type="Sprite2D" parent="UI/WorkerBuildOptions/Farm/Sprite2D"]
+position = Vector2(-16, 20)
+texture = ExtResource("6_efxa6")
+
+[node name="Sprite2D4" type="Sprite2D" parent="UI/WorkerBuildOptions/Farm/Sprite2D"]
+position = Vector2(18, 20)
+texture = ExtResource("6_efxa6")
+
+[node name="ButtonBuildFarm" type="Button" parent="UI/WorkerBuildOptions/Farm/Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.392157)
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="WinScreen" type="Node2D" parent="UI"]
+visible = false
+
+[node name="Panel" type="Panel" parent="UI/WinScreen"]
+offset_right = 1153.0
+offset_bottom = 654.0
+
+[node name="LabelWin" type="Label" parent="UI/WinScreen"]
+offset_right = 1150.0
+offset_bottom = 370.0
+text = "You Win!"
+label_settings = SubResource("LabelSettings_dg77c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonPlayAgain" type="Button" parent="UI/WinScreen"]
+offset_left = 490.0
+offset_top = 306.0
+offset_right = 651.0
+offset_bottom = 344.0
+text = "Play Again"
+
+[node name="LoseScreen" type="Node2D" parent="UI"]
+
+[node name="Panel" type="Panel" parent="UI/LoseScreen"]
+offset_right = 1153.0
+offset_bottom = 654.0
+
+[node name="LabelWin" type="Label" parent="UI/LoseScreen"]
+offset_right = 1150.0
+offset_bottom = 370.0
+text = "You Lose :("
+label_settings = SubResource("LabelSettings_dg77c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonPlayAgain" type="Button" parent="UI/LoseScreen"]
+offset_left = 490.0
+offset_top = 306.0
+offset_right = 651.0
+offset_bottom = 344.0
+text = "Play Again"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
