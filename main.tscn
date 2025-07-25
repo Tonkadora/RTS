@@ -227,6 +227,7 @@ offset_bottom = 344.0
 text = "Play Again"
 
 [node name="LoseScreen" type="Node2D" parent="UI"]
+visible = false
 
 [node name="Panel" type="Panel" parent="UI/LoseScreen"]
 offset_right = 1153.0
