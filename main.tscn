@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c43uecprb0ch1"]
+
+[node name="Main" type="Node2D"]
+
+[node name="GameObjects" type="Node2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
