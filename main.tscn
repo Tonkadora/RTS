@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c43uecprb0ch1"]
+[gd_scene load_steps=9 format=3 uid="uid://c43uecprb0ch1"]
 
 [ext_resource type="Texture2D" uid="uid://bpdmermn4jtvu" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_07.png" id="1_7mycd"]
 [ext_resource type="Texture2D" uid="uid://b0tlm1i16xed0" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_04.png" id="2_272bh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dyogigmbovnjj" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_05.png" id="4_kek77"]
 [ext_resource type="Texture2D" uid="uid://ddovb2kgq4i0j" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_11.png" id="5_4c57u"]
 [ext_resource type="Texture2D" uid="uid://bnahi7s2pxov" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Environment/scifiEnvironment_16.png" id="6_efxa6"]
+[ext_resource type="Script" uid="uid://ccv4lr2mjb0rj" path="res://camera_2d.gd" id="7_272bh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dg77c"]
 font_size = 120
@@ -81,19 +82,19 @@ offset_right = 118.0
 offset_bottom = 107.0
 
 [node name="ColorRect2" type="ColorRect" parent="UI/MiniMap/OuterBox"]
-offset_left = 11.0
 offset_top = -11.0
-offset_right = 129.0
+offset_right = 118.0
 rotation = 1.5708
 
 [node name="ColorRect3" type="ColorRect" parent="UI/MiniMap/OuterBox"]
-offset_left = 118.0
+offset_left = 129.0
 offset_top = -11.0
-offset_right = 236.0
+offset_right = 247.0
 rotation = 1.5708
 
 [node name="Screen" type="Node2D" parent="UI/MiniMap"]
-position = Vector2(997, 566)
+position = Vector2(1000, 566)
+scale = Vector2(0.8, 1)
 
 [node name="ColorRect" type="ColorRect" parent="UI/MiniMap/Screen"]
 offset_left = 1.0
@@ -250,3 +251,4 @@ text = "Play Again"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
+script = ExtResource("7_272bh")
