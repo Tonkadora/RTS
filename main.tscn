@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://c43uecprb0ch1"]
+[gd_scene load_steps=12 format=3 uid="uid://c43uecprb0ch1"]
 
+[ext_resource type="Script" uid="uid://c4683v7irml6v" path="res://game_objects.gd" id="1_4c57u"]
 [ext_resource type="Script" uid="uid://x4r0ymof3xpj" path="res://worker_build_options.gd" id="1_5vw27"]
 [ext_resource type="Texture2D" uid="uid://bpdmermn4jtvu" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_07.png" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://cnmd5wpebpmg0" path="res://ui.gd" id="1_kek77"]
@@ -18,6 +19,7 @@ outline_color = Color(0, 0, 0, 1)
 [node name="Main" type="Node2D"]
 
 [node name="GameObjects" type="Node2D" parent="."]
+script = ExtResource("1_4c57u")
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("1_kek77")
