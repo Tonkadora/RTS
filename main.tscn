@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://c43uecprb0ch1"]
+[gd_scene load_steps=10 format=3 uid="uid://c43uecprb0ch1"]
 
+[ext_resource type="Script" uid="uid://x4r0ymof3xpj" path="res://worker_build_options.gd" id="1_5vw27"]
 [ext_resource type="Texture2D" uid="uid://bpdmermn4jtvu" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_07.png" id="1_7mycd"]
 [ext_resource type="Texture2D" uid="uid://b0tlm1i16xed0" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_04.png" id="2_272bh"]
 [ext_resource type="Texture2D" uid="uid://dft0vwlrwv644" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_03.png" id="3_5vw27"]
@@ -104,6 +105,7 @@ offset_bottom = 16.0
 
 [node name="WorkerBuildOptions" type="Node2D" parent="UI"]
 visible = false
+script = ExtResource("1_5vw27")
 
 [node name="TC" type="Node2D" parent="UI/WorkerBuildOptions"]
 
@@ -252,3 +254,10 @@ text = "Play Again"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
 script = ExtResource("7_272bh")
+
+[connection signal="pressed" from="UI/WorkerBuildOptions/TC/Sprite2D/ButtonBuildTC" to="UI/WorkerBuildOptions" method="_on_button_build_tc_pressed"]
+[connection signal="pressed" from="UI/WorkerBuildOptions/House/Sprite2D/ButtonBBuildHouse" to="UI/WorkerBuildOptions" method="_on_button_b_build_house_pressed"]
+[connection signal="pressed" from="UI/WorkerBuildOptions/Barracks/Sprite2D/ButtonBBuildBarracks" to="UI/WorkerBuildOptions" method="_on_button_b_build_barracks_pressed"]
+[connection signal="pressed" from="UI/WorkerBuildOptions/Range/Sprite2D/ButtonBBuildRange" to="UI/WorkerBuildOptions" method="_on_button_b_build_range_pressed"]
+[connection signal="pressed" from="UI/WorkerBuildOptions/Tower/Sprite2D/ButtonBBuildTower" to="UI/WorkerBuildOptions" method="_on_button_b_build_tower_pressed"]
+[connection signal="pressed" from="UI/WorkerBuildOptions/Farm/Sprite2D/ButtonBuildFarm" to="UI/WorkerBuildOptions" method="_on_button_build_farm_pressed"]
