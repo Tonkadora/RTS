@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c43uecprb0ch1"]
+[gd_scene load_steps=11 format=3 uid="uid://c43uecprb0ch1"]
 
 [ext_resource type="Script" uid="uid://x4r0ymof3xpj" path="res://worker_build_options.gd" id="1_5vw27"]
 [ext_resource type="Texture2D" uid="uid://bpdmermn4jtvu" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_07.png" id="1_7mycd"]
+[ext_resource type="Script" uid="uid://cnmd5wpebpmg0" path="res://ui.gd" id="1_kek77"]
 [ext_resource type="Texture2D" uid="uid://b0tlm1i16xed0" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_04.png" id="2_272bh"]
 [ext_resource type="Texture2D" uid="uid://dft0vwlrwv644" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_03.png" id="3_5vw27"]
 [ext_resource type="Texture2D" uid="uid://dyogigmbovnjj" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Structure/scifiStructure_05.png" id="4_kek77"]
@@ -19,6 +20,7 @@ outline_color = Color(0, 0, 0, 1)
 [node name="GameObjects" type="Node2D" parent="."]
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("1_kek77")
 
 [node name="Backgrounds" type="Node2D" parent="UI"]
 position = Vector2(0, -1)
@@ -104,7 +106,6 @@ offset_right = 31.0
 offset_bottom = 16.0
 
 [node name="WorkerBuildOptions" type="Node2D" parent="UI"]
-visible = false
 script = ExtResource("1_5vw27")
 
 [node name="TC" type="Node2D" parent="UI/WorkerBuildOptions"]

@@ -38,8 +38,6 @@ func _on_button_b_build_barracks_pressed() -> void:
 		
 		Global.wood_count -= 50
 
-		
-
 
 func _on_button_b_build_range_pressed() -> void:
 	if Global.wood_count >= 50:
