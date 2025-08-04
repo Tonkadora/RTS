@@ -33,7 +33,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			var q = PhysicsShapeQueryParameters2D.new()
 			q.shape = select_rect
 			q.collision_mask = 2
-			q.transform = Transform2D(0,(drag_end - drag_start)/2)
+			q.transform = Transform2D(0,(drag_end + drag_start)/2)
 			selected = space.intersect_shape(q)
 			for item in selected:
 				item.collider.selected = true

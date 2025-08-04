@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dc6ywhkm5nb0d"]
+[gd_scene load_steps=11 format=3 uid="uid://dc6ywhkm5nb0d"]
 
+[ext_resource type="Script" uid="uid://bs7vsxh5arcca" path="res://worker.gd" id="1_8vnpx"]
 [ext_resource type="Texture2D" uid="uid://bvxlm0n0pibcd" path="res://GameArt/kenney_space-shooter-redux/PNG/playerShip3_blue.png" id="1_26yh5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8vnpx"]
@@ -16,6 +17,57 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4r8qu"]
 bg_color = Color(0, 0.905882, 0, 1)
+
+[sub_resource type="Animation" id="Animation_8vnpx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tools:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tools/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tools/CollisionShape2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_26yh5"]
 resource_name = "UseTools"
@@ -69,57 +121,6 @@ tracks/3/keys = {
 "values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_8vnpx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Tools:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Tools/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Tools/CollisionShape2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Body:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7p3b1"]
 _data = {
 &"RESET": SubResource("Animation_8vnpx"),
@@ -132,10 +133,12 @@ collision_layer = 3
 collision_mask = 3
 motion_mode = 1
 safe_margin = 5.0
+script = ExtResource("1_8vnpx")
 
 [node name="Body" type="Node2D" parent="."]
 
 [node name="BackSprite" type="Sprite2D" parent="Body"]
+visible = false
 clip_children = 2
 position = Vector2(4, 15)
 rotation = 1.5708
@@ -206,3 +209,6 @@ one_shot = true
 libraries = {
 &"": SubResource("AnimationLibrary_7p3b1")
 }
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="timeout" from="TimerShoot" to="." method="_on_timer_shoot_timeout"]
