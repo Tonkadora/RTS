@@ -11,7 +11,6 @@ extends Node2D
 @onready var game_objects: Node2D = $"../../GameObjects"
 
 
-
 func _on_button_build_tc_pressed() -> void:
 	if Global.wood_count >= 50 and Global.gold_count >= 50:
 		var new_building = new_town_center.instantiate()
@@ -19,7 +18,6 @@ func _on_button_build_tc_pressed() -> void:
 		
 		Global.wood_count -= 50
 		Global.gold_count -= 50
-		
 		
 
 func _on_button_b_build_house_pressed() -> void:
@@ -29,7 +27,6 @@ func _on_button_b_build_house_pressed() -> void:
 		
 		Global.wood_count -= 50
 		
-
 
 func _on_button_b_build_barracks_pressed() -> void:
 	if Global.wood_count >= 50:

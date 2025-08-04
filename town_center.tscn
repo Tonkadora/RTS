@@ -1,0 +1,206 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnj8lus8diakn"]
+
+[ext_resource type="Texture2D" uid="uid://b48t5xtytxm2i" path="res://GameArt/kenney_sci-fi-rts/PNG/Retina/Tile/scifiTile_13.png" id="1_31agg"]
+[ext_resource type="Texture2D" uid="uid://bmdbo8bqdo8uf" path="res://GameArt/kenney_sci-fi-rts/PNG/Retina/Structure/scifiStructure_10.png" id="2_qdnrl"]
+[ext_resource type="Texture2D" uid="uid://bvxlm0n0pibcd" path="res://GameArt/kenney_space-shooter-redux/PNG/playerShip3_blue.png" id="3_l5ko1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmykw"]
+size = Vector2(80, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovmdb"]
+size = Vector2(80, 81)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnea0"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xstg0"]
+bg_color = Color(0.0313726, 0.917647, 0.168627, 1)
+
+[node name="TownCenter" type="Area2D"]
+
+[node name="Ground" type="Sprite2D" parent="."]
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("1_31agg")
+
+[node name="BuildingSprite" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="BuildingSprite"]
+texture_filter = 1
+scale = Vector2(0.62, 0.62)
+texture = ExtResource("2_qdnrl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_dmykw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ovmdb")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -35.0
+offset_top = -55.0
+offset_right = 36.0
+offset_bottom = -50.0
+theme_override_styles/background = SubResource("StyleBoxFlat_fnea0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xstg0")
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="ButtonTC" type="Button" parent="."]
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 41.0
+offset_bottom = 41.0
+theme_type_variation = &"FlatButton"
+
+[node name="TimerWorker" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerUIOn" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="RemoveButton" type="Node2D" parent="CanvasLayer"]
+
+[node name="Image" type="Node2D" parent="CanvasLayer/RemoveButton"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/RemoveButton/Image"]
+offset_left = 14.0
+offset_top = 513.0
+offset_right = 46.0
+offset_bottom = 546.0
+color = Color(1, 0.0823529, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/RemoveButton/Image/ColorRect"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 35.0
+offset_bottom = 9.0
+rotation = 0.785398
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/RemoveButton/Image/ColorRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 24.0
+offset_right = 31.0
+offset_bottom = 28.0
+rotation = -0.785398
+color = Color(0, 0, 0, 1)
+
+[node name="ButtonRemove" type="Button" parent="CanvasLayer/RemoveButton/Image"]
+self_modulate = Color(1, 1, 1, 0.376471)
+offset_left = 14.0
+offset_top = 513.0
+offset_right = 46.0
+offset_bottom = 546.0
+
+[node name="AddWorkerButton" type="Node2D" parent="CanvasLayer"]
+position = Vector2(40, 0)
+
+[node name="Image" type="Node2D" parent="CanvasLayer/AddWorkerButton"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/AddWorkerButton/Image"]
+offset_left = 14.0
+offset_top = 513.0
+offset_right = 46.0
+offset_bottom = 546.0
+color = Color(0.0392157, 0.415686, 0, 1)
+
+[node name="ButtonAddWorker" type="Button" parent="CanvasLayer/AddWorkerButton/Image"]
+self_modulate = Color(1, 1, 1, 0.376471)
+offset_left = 14.0
+offset_top = 513.0
+offset_right = 46.0
+offset_bottom = 546.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/AddWorkerButton/Image"]
+texture_filter = 1
+position = Vector2(30, 530)
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("3_l5ko1")
+
+[node name="Q1" type="Node2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(80, 40)
+
+[node name="Image" type="Node2D" parent="CanvasLayer/Q1"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Q1/Image"]
+offset_left = 14.0
+offset_top = 513.0
+offset_right = 46.0
+offset_bottom = 546.0
+color = Color(0.0392157, 0.415686, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Q1/Image"]
+texture_filter = 1
+position = Vector2(30, 530)
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("3_l5ko1")
+
+[node name="Q2" type="Node2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(120, 40)
+
+[node name="Image" type="Node2D" parent="CanvasLayer/Q2"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Q2/Image"]
+offset_left = 14.0
+offset_top = 513.0
+offset_right = 46.0
+offset_bottom = 546.0
+color = Color(0.0392157, 0.415686, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Q2/Image"]
+texture_filter = 1
+position = Vector2(30, 530)
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("3_l5ko1")
+
+[node name="Q3" type="Node2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(160, 40)
+
+[node name="Image" type="Node2D" parent="CanvasLayer/Q3"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Q3/Image"]
+offset_left = 14.0
+offset_top = 513.0
+offset_right = 46.0
+offset_bottom = 546.0
+color = Color(0.0392157, 0.415686, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Q3/Image"]
+texture_filter = 1
+position = Vector2(30, 530)
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("3_l5ko1")
+
+[node name="Q4" type="Node2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(200, 40)
+
+[node name="Image" type="Node2D" parent="CanvasLayer/Q4"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Q4/Image"]
+offset_left = 14.0
+offset_top = 513.0
+offset_right = 46.0
+offset_bottom = 546.0
+color = Color(0.0392157, 0.415686, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Q4/Image"]
+texture_filter = 1
+position = Vector2(30, 530)
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("3_l5ko1")
