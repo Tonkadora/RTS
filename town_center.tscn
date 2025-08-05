@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnj8lus8diakn"]
+[gd_scene load_steps=11 format=3 uid="uid://cnj8lus8diakn"]
 
-[ext_resource type="Texture2D" uid="uid://b48t5xtytxm2i" path="res://GameArt/kenney_sci-fi-rts/PNG/Retina/Tile/scifiTile_13.png" id="1_31agg"]
+[ext_resource type="Script" uid="uid://db8p581kbakfk" path="res://town_center.gd" id="1_qdnrl"]
+[ext_resource type="PackedScene" uid="uid://4oa13ki6dd68" path="res://cleared_block.tscn" id="2_dmykw"]
 [ext_resource type="Texture2D" uid="uid://bmdbo8bqdo8uf" path="res://GameArt/kenney_sci-fi-rts/PNG/Retina/Structure/scifiStructure_10.png" id="2_qdnrl"]
 [ext_resource type="Texture2D" uid="uid://bvxlm0n0pibcd" path="res://GameArt/kenney_space-shooter-redux/PNG/playerShip3_blue.png" id="3_l5ko1"]
+[ext_resource type="PackedScene" uid="uid://dc6ywhkm5nb0d" path="res://worker.tscn" id="3_ovmdb"]
+[ext_resource type="Texture2D" uid="uid://sl05lcngwtt4" path="res://GameArt/kenney_sci-fi-rts/PNG/Default size/Tile/scifiTile_42.png" id="4_dmykw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmykw"]
 size = Vector2(80, 81)
@@ -17,10 +20,14 @@ bg_color = Color(0, 0, 0, 1)
 bg_color = Color(0.0313726, 0.917647, 0.168627, 1)
 
 [node name="TownCenter" type="Area2D"]
+script = ExtResource("1_qdnrl")
+cleared_block = ExtResource("2_dmykw")
+new_worker = ExtResource("3_ovmdb")
 
 [node name="Ground" type="Sprite2D" parent="."]
-scale = Vector2(0.63, 0.63)
-texture = ExtResource("1_31agg")
+position = Vector2(0.499997, 1)
+scale = Vector2(1.23438, 1.28125)
+texture = ExtResource("4_dmykw")
 
 [node name="BuildingSprite" type="Node2D" parent="."]
 
@@ -204,3 +211,10 @@ texture_filter = 1
 position = Vector2(30, 530)
 scale = Vector2(0.31, 0.31)
 texture = ExtResource("3_l5ko1")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="pressed" from="ButtonTC" to="." method="_on_button_tc_pressed"]
+[connection signal="timeout" from="TimerWorker" to="." method="_on_timer_worker_timeout"]
+[connection signal="timeout" from="TimerUIOn" to="." method="_on_timer_ui_on_timeout"]
+[connection signal="pressed" from="CanvasLayer/RemoveButton/Image/ButtonRemove" to="." method="_on_button_remove_pressed"]
+[connection signal="pressed" from="CanvasLayer/AddWorkerButton/Image/ButtonAddWorker" to="." method="_on_button_add_worker_pressed"]
